@@ -297,6 +297,84 @@ h1::after{
 }
 .gp:disabled{opacity:.55;cursor:progress}
 
+/* ============ 3500词 · 百变小樱「库洛牌」皮肤 ============
+   没背 = 牌背朝上（紫金底 + 中央魔法环 + ✦）；
+   背过 = 牌面翻开（每张牌一个色系，四角金点，★），像集齐一整套库洛牌；
+   今天刚打的 = 金边呼吸；点一下整张牌翻个面。
+   色相 --h 由序号决定（黄金角分布），40 张牌翻开后五颜六色但不重复。 */
+.groups.sakura{perspective:1100px;gap:12px}
+.groups.sakura .gp{
+  border:0;border-radius:13px;overflow:hidden;transform-style:preserve-3d;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,214,120,.30), transparent 58%),
+    linear-gradient(165deg,#4a2382,#6b2fa8 45%,#2b1450);
+  color:#f0e6ff;
+  box-shadow:inset 0 0 0 2px rgba(214,178,88,.55), inset 0 0 22px -6px rgba(0,0,0,.5),
+             0 7px 16px -8px rgba(48,20,96,.85);
+}
+/* 牌背 / 牌面中央的魔法环 */
+.groups.sakura .gp::before{
+  content:'';position:absolute;left:50%;top:46%;width:52%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  border:1.5px solid rgba(238,205,120,.5);
+  box-shadow:0 0 12px rgba(238,205,120,.25), inset 0 0 10px rgba(238,205,120,.18);
+}
+.groups.sakura .gp::after{display:none}   /* 这套皮肤不用原来右上角那个白点 */
+.groups.sakura .gp .sig{
+  position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  font-size:22px;line-height:1;font-style:normal;pointer-events:none;
+  color:rgba(255,222,140,.92);text-shadow:0 0 10px rgba(255,200,80,.6);
+}
+.groups.sakura .gp .lab{
+  position:relative;z-index:2;margin-top:auto;
+  font-family:Georgia,'Times New Roman',serif;
+  text-transform:uppercase;letter-spacing:.12em;
+  font-size:11.5px;font-weight:700;color:rgba(240,230,255,.92);
+}
+.groups.sakura .gp .lab b{font-size:19px;font-weight:800;color:#fff;letter-spacing:.02em}
+.groups.sakura .gp .k{position:relative;z-index:2;margin-top:2px;font-size:10.5px;color:rgba(214,196,255,.72)}
+/* 翻开的牌面 */
+.groups.sakura .gp.done{
+  background:
+    radial-gradient(circle at 8px 8px, rgba(198,160,60,.95) 1.6px, transparent 2.2px),
+    radial-gradient(circle at calc(100% - 8px) 8px, rgba(198,160,60,.95) 1.6px, transparent 2.2px),
+    radial-gradient(circle at 8px calc(100% - 8px), rgba(198,160,60,.95) 1.6px, transparent 2.2px),
+    radial-gradient(circle at calc(100% - 8px) calc(100% - 8px), rgba(198,160,60,.95) 1.6px, transparent 2.2px),
+    linear-gradient(165deg, hsl(var(--h) 78% 96%), hsl(var(--h) 62% 85%) 55%, hsl(var(--h) 55% 75%));
+  color:hsl(var(--h) 45% 28%);
+  box-shadow:inset 0 0 0 2px hsl(var(--h) 52% 58%), 0 8px 18px -8px hsl(var(--h) 55% 40% / .6);
+}
+.groups.sakura .gp.done::before{width:64%;border-color:hsl(var(--h) 48% 52% / .45);box-shadow:none}
+.groups.sakura .gp.done .sig{color:hsl(var(--h) 45% 45%);text-shadow:none}
+.groups.sakura .gp.done .lab{color:hsl(var(--h) 40% 38%)}
+.groups.sakura .gp.done .lab b{color:hsl(var(--h) 55% 26%)}
+.groups.sakura .gp.done .k{color:hsl(var(--h) 35% 45%)}
+/* 今天刚打的：金边呼吸 */
+.groups.sakura .gp.today{animation:clowGlow 2.4s ease-in-out infinite}
+@keyframes clowGlow{
+  0%,100%{box-shadow:inset 0 0 0 2px #e5b73a, 0 0 0 3px rgba(255,206,84,.35), 0 8px 18px -8px rgba(120,80,10,.5)}
+  50%    {box-shadow:inset 0 0 0 2px #f5cf5c, 0 0 0 6px rgba(255,206,84,.22), 0 8px 20px -6px rgba(120,80,10,.6)}
+}
+/* 打卡瞬间翻牌 */
+.groups.sakura .gp.flip{animation:clowFlip .62s cubic-bezier(.45,.05,.25,1)}
+@keyframes clowFlip{
+  0%{transform:rotateY(0)}
+  45%{transform:rotateY(88deg) scale(1.05)}
+  100%{transform:rotateY(0)}
+}
+@media (max-width:520px){
+  .groups.sakura{gap:9px}
+  .groups.sakura .gp{border-radius:11px}
+  .groups.sakura .gp .sig{font-size:17px}
+  .groups.sakura .gp .lab{font-size:9.5px;letter-spacing:.06em}
+  .groups.sakura .gp .lab b{font-size:15px}
+  .groups.sakura .gp .k{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  .groups.sakura .gp.today{animation:none}
+  .groups.sakura .gp.flip{animation:none}
+}
+
 /* ============ 提示文字 ============ */
 .hint{
   font-size:13px;color:var(--ink3);margin:16px 0 0;line-height:1.7;
@@ -1120,11 +1198,16 @@ async function viewGroup(){
     + (todayN ? ' <b>' + todayN + '</b> 组' : '') + '</span>'
     + '</div>'
     + '<div class="bar"><i id="stBar" style="width:' + (mineSet.size / c.total * 100) + '%"></i></div>'
-    + '<div class="groups">' + Array.from({length: c.total}, (_, i) => i + 1).map(n => {
+    + '<div class="groups' + (S.content === 'words' ? ' sakura' : '') + '">'
+    + Array.from({length: c.total}, (_, i) => i + 1).map(n => {
         const done = mineSet.has(n);
         const today = S.mine.some(r => r.content === S.content && r.grp === n && r.d === ds());
+        /* 库洛牌皮肤：每张牌一个色系（黄金角分布，相邻牌颜色拉得开） */
+        const hue = Math.round((n * 137.5) % 360);
+        const sig = (S.content === 'words') ? '<span class="sig">' + (done ? '★' : '✦') + '</span>' : '';
         return '<button class="gp ' + (done ? 'done' : '') + ' ' + (today ? 'today' : '')
-          + '" data-g="' + n + '"><span class="lab">' + c.unit + ' <b>' + n + '</b></span>'
+          + '" data-g="' + n + '" style="--h:' + hue + '">' + sig
+          + '<span class="lab">' + c.unit + ' <b>' + n + '</b></span>'
           + '<span class="k">' + (done ? '已背' : '未背') + '</span></button>';
       }).join('') + '</div>'
     + '<p class="hint">点一下就打卡，再点一次取消。绿色是你已经背过的组，黄圈是今天刚打的。打卡后不会跳回顶部，可以连着点。</p>';
@@ -1169,6 +1252,15 @@ function paintCard(b, done, today){
   b.classList.toggle('today', !!today);
   const k = b.querySelector('.k');
   if (k) k.textContent = done ? '已背' : '未背';
+  /* 库洛牌皮肤：中央符号 ✦（牌背）↔ ★（牌面），并翻一下牌 */
+  const sig = b.querySelector('.sig');
+  if (sig) sig.textContent = done ? '★' : '✦';
+  if (b.closest && b.closest('.groups.sakura')) {
+    b.classList.remove('flip');
+    void b.offsetWidth;                /* 强制重排，让动画能连续触发 */
+    b.classList.add('flip');
+    setTimeout(function () { b.classList.remove('flip'); }, 700);
+  }
 }
 
 /* 顶部统计局部刷新：已背组数 / 连续天数 / 今日组数 / 进度条 */
