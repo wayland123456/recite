@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#050A1E">
-<meta name="description" content="高三英语背诵打卡 · 3500词乱序版 / 写作100句">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="背诵打卡">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Cpath d='M9 22V11.5A2.5 2.5 0 0 1 11.5 9h9A2.5 2.5 0 0 1 23 11.5V22' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M9 22a2.5 2.5 0 0 0 2.5 2.5H23' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='m13 15 2.2 2.2L19 13' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<html lang="zh-CN" data-theme="dark" data-page-node-id="DQpooTTVYMj47KXKzGeuWQ">
+<head data-page-node-id="tdfxwWykxtxI2nGkECL48Z">
+<meta charset="UTF-8" data-page-node-id="jbFYagoV7257HD65o3qHDf">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" data-page-node-id="9wbli2BgP9TvYjFSqGeGMl">
+<meta name="theme-color" content="#050A1E" data-page-node-id="rxigTN43TYIMe6SohTAyzI">
+<meta name="description" content="高三英语背诵打卡 · 3500词乱序版 / 写作100句" data-page-node-id="LlK3RM53W2r54AkwIFRbDW">
+<meta name="apple-mobile-web-app-capable" content="yes" data-page-node-id="R9RmAmZASML3zq0iBYFBdc">
+<meta name="apple-mobile-web-app-status-bar-style" content="default" data-page-node-id="hIth15odHl9fEDynC98wYd">
+<meta name="apple-mobile-web-app-title" content="背诵打卡" data-page-node-id="HqhaoQZLTFjE5uux1iIoAI">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Cpath d='M9 22V11.5A2.5 2.5 0 0 1 11.5 9h9A2.5 2.5 0 0 1 23 11.5V22' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M9 22a2.5 2.5 0 0 0 2.5 2.5H23' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='m13 15 2.2 2.2L19 13' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" data-page-node-id="EUdKAleCDchwoHBQwmTUXe">
+<meta name="robots" content="noindex,nofollow,noarchive" data-page-node-id="YLBepFo8CzHUWmb8NSbQsA">
+<link rel="manifest" href="./manifest.json" data-page-node-id="8nIapUBeVELiX5mPUSbUdf">
+<link rel="apple-touch-icon" href="data:image/png;base64,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" data-page-node-id="RAnLTu4M1tko2HTCHEil2A">
 <title>英语背诵打卡</title>
 <script>
 /* 主题：优先读上次选择；默认深色夜空（首页气球需要深底） */
@@ -297,84 +297,101 @@ h1::after{
 }
 .gp:disabled{opacity:.55;cursor:progress}
 
-/* ============ 3500词 · 百变小樱「库洛牌」皮肤 ============
-   没背 = 牌背朝上（紫金底 + 中央魔法环 + ✦）；
-   背过 = 牌面翻开（每张牌一个色系，四角金点，★），像集齐一整套库洛牌；
-   今天刚打的 = 金边呼吸；点一下整张牌翻个面。
-   色相 --h 由序号决定（黄金角分布），40 张牌翻开后五颜六色但不重复。 */
-.groups.sakura{perspective:1100px;gap:12px}
-.groups.sakura .gp{
-  border:0;border-radius:13px;overflow:hidden;transform-style:preserve-3d;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(255,214,120,.30), transparent 58%),
-    linear-gradient(165deg,#4a2382,#6b2fa8 45%,#2b1450);
-  color:#f0e6ff;
-  box-shadow:inset 0 0 0 2px rgba(214,178,88,.55), inset 0 0 22px -6px rgba(0,0,0,.5),
-             0 7px 16px -8px rgba(48,20,96,.85);
+/* ============ 3500词 · 日漫少女风卡片 ============
+   气质：奶油粉底 + 白贴纸边 + 樱花装饰，圆润、软、亮 —— 不是库洛牌那种紫金硬派。
+   没背  = 素净待解锁（白卡 + 粉边 + ✧）
+   背过  = 樱花绽放（粉紫渐变 + 厚白边贴纸感 + 🌸）
+   今天  = 蝴蝶结 🎀 + 粉光呼吸
+   点一下 = 弹一下 + 一道光泽扫过卡面
+   --h 让每张牌的粉略有深浅（330~353 色相），整墙不呆板又不跑出粉色系。 */
+.groups.girl{
+  gap:11px;padding:12px;border-radius:22px;
+  background:linear-gradient(165deg,#fff5f9,#fdf3ff 55%,#f4f6ff);
+  box-shadow:inset 0 0 0 1px rgba(255,190,215,.55);
 }
-/* 牌背 / 牌面中央的魔法环 */
-.groups.sakura .gp::before{
-  content:'';position:absolute;left:50%;top:46%;width:52%;aspect-ratio:1;
+.groups.girl .gp{
+  border:0;border-radius:20px;overflow:hidden;
+  background:linear-gradient(165deg,#ffffff,#fff7fb);
+  box-shadow:inset 0 0 0 2px #ffd6e4, 0 4px 10px -4px rgba(255,150,190,.35);
+}
+/* 卡面顶部那团柔光 */
+.groups.girl .gp::before{
+  content:'';position:absolute;left:50%;top:30%;width:66%;aspect-ratio:1;
   transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
-  border:1.5px solid rgba(238,205,120,.5);
-  box-shadow:0 0 12px rgba(238,205,120,.25), inset 0 0 10px rgba(238,205,120,.18);
+  background:radial-gradient(circle, rgba(255,214,232,.75), rgba(255,214,232,0) 70%);
 }
-.groups.sakura .gp::after{display:none}   /* 这套皮肤不用原来右上角那个白点 */
-.groups.sakura .gp .sig{
-  position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
-  font-size:22px;line-height:1;font-style:normal;pointer-events:none;
-  color:rgba(255,222,140,.92);text-shadow:0 0 10px rgba(255,200,80,.6);
+.groups.girl .gp::after{display:none}
+.groups.girl .gp .deco{
+  position:absolute;left:50%;top:23%;transform:translate(-50%,-50%);
+  font-size:18px;line-height:1;font-style:normal;pointer-events:none;
 }
-.groups.sakura .gp .lab{
+.groups.girl .gp .lab{
   position:relative;z-index:2;margin-top:auto;
-  font-family:Georgia,'Times New Roman',serif;
-  text-transform:uppercase;letter-spacing:.12em;
-  font-size:11.5px;font-weight:700;color:rgba(240,230,255,.92);
+  text-transform:uppercase;letter-spacing:.14em;
+  font-size:9.5px;font-weight:800;color:#ffc6d9;
 }
-.groups.sakura .gp .lab b{font-size:19px;font-weight:800;color:#fff;letter-spacing:.02em}
-.groups.sakura .gp .k{position:relative;z-index:2;margin-top:2px;font-size:10.5px;color:rgba(214,196,255,.72)}
-/* 翻开的牌面 */
-.groups.sakura .gp.done{
-  background:
-    radial-gradient(circle at 8px 8px, rgba(198,160,60,.95) 1.6px, transparent 2.2px),
-    radial-gradient(circle at calc(100% - 8px) 8px, rgba(198,160,60,.95) 1.6px, transparent 2.2px),
-    radial-gradient(circle at 8px calc(100% - 8px), rgba(198,160,60,.95) 1.6px, transparent 2.2px),
-    radial-gradient(circle at calc(100% - 8px) calc(100% - 8px), rgba(198,160,60,.95) 1.6px, transparent 2.2px),
-    linear-gradient(165deg, hsl(var(--h) 78% 96%), hsl(var(--h) 62% 85%) 55%, hsl(var(--h) 55% 75%));
-  color:hsl(var(--h) 45% 28%);
-  box-shadow:inset 0 0 0 2px hsl(var(--h) 52% 58%), 0 8px 18px -8px hsl(var(--h) 55% 40% / .6);
+.groups.girl .gp .lab b{
+  display:block;font-size:22px;font-weight:800;letter-spacing:.02em;
+  color:#ff9ab8;line-height:1.15;margin-top:1px;
 }
-.groups.sakura .gp.done::before{width:64%;border-color:hsl(var(--h) 48% 52% / .45);box-shadow:none}
-.groups.sakura .gp.done .sig{color:hsl(var(--h) 45% 45%);text-shadow:none}
-.groups.sakura .gp.done .lab{color:hsl(var(--h) 40% 38%)}
-.groups.sakura .gp.done .lab b{color:hsl(var(--h) 55% 26%)}
-.groups.sakura .gp.done .k{color:hsl(var(--h) 35% 45%)}
-/* 今天刚打的：金边呼吸 */
-.groups.sakura .gp.today{animation:clowGlow 2.4s ease-in-out infinite}
-@keyframes clowGlow{
-  0%,100%{box-shadow:inset 0 0 0 2px #e5b73a, 0 0 0 3px rgba(255,206,84,.35), 0 8px 18px -8px rgba(120,80,10,.5)}
-  50%    {box-shadow:inset 0 0 0 2px #f5cf5c, 0 0 0 6px rgba(255,206,84,.22), 0 8px 20px -6px rgba(120,80,10,.6)}
+.groups.girl .gp .k{
+  position:relative;z-index:2;margin-top:5px;padding:1.5px 9px;border-radius:999px;
+  font-size:9.5px;font-weight:700;color:#bda6b2;background:#fff0f5;
+  box-shadow:inset 0 0 0 1px #ffe2ee;
 }
-/* 打卡瞬间翻牌 */
-.groups.sakura .gp.flip{animation:clowFlip .62s cubic-bezier(.45,.05,.25,1)}
-@keyframes clowFlip{
-  0%{transform:rotateY(0)}
-  45%{transform:rotateY(88deg) scale(1.05)}
-  100%{transform:rotateY(0)}
+/* 已背 = 樱花绽放 */
+.groups.girl .gp.done{
+  background:linear-gradient(165deg, hsl(var(--h) 100% 95%), hsl(var(--h) 78% 88%) 45%, hsl(calc(var(--h) + 18) 70% 93%));
+  box-shadow:inset 0 0 0 3px #fff, 0 0 0 1.5px hsl(var(--h) 72% 78%),
+             0 8px 18px -8px rgba(240,110,160,.5);
+}
+.groups.girl .gp.done::before{
+  background:radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0) 70%);
+}
+.groups.girl .gp.done .lab{color:hsl(var(--h) 62% 58%)}
+.groups.girl .gp.done .lab b{color:hsl(var(--h) 68% 44%);text-shadow:0 1px 0 rgba(255,255,255,.8)}
+.groups.girl .gp.done .k{
+  color:#fff;background:hsl(var(--h) 72% 68%);
+  box-shadow:0 2px 6px -2px hsl(var(--h) 60% 55% / .8);
+}
+/* 今天刚打的：粉光呼吸 */
+.groups.girl .gp.today{animation:girlGlow 2.6s ease-in-out infinite}
+@keyframes girlGlow{
+  0%,100%{box-shadow:inset 0 0 0 3px #fff, 0 0 0 2px #ff9dc0, 0 6px 16px -8px rgba(240,110,160,.5)}
+  50%    {box-shadow:inset 0 0 0 3px #fff, 0 0 0 6px rgba(255,157,192,.32), 0 8px 20px -6px rgba(240,110,160,.7)}
+}
+.groups.girl .gp.today .deco{font-size:20px}
+/* 打卡瞬间：弹一下 */
+.groups.girl .gp.flip{animation:girlPop .58s cubic-bezier(.34,1.56,.64,1)}
+@keyframes girlPop{
+  0%{transform:scale(1)}
+  35%{transform:scale(1.16) rotate(-3deg)}
+  70%{transform:scale(.96) rotate(2deg)}
+  100%{transform:scale(1)}
+}
+/* 打卡瞬间：一道光泽扫过卡面 */
+.groups.girl .gp.flip::after{
+  content:'';display:block;position:absolute;inset:-45%;z-index:4;pointer-events:none;
+  background:linear-gradient(70deg, transparent 42%, rgba(255,255,255,.9) 50%, transparent 58%);
+  animation:girlShine .72s ease-out;
+}
+@keyframes girlShine{
+  0%{transform:translateX(-130%)}
+  100%{transform:translateX(130%)}
 }
 @media (max-width:520px){
-  .groups.sakura{gap:9px}
-  .groups.sakura .gp{border-radius:11px}
-  .groups.sakura .gp .sig{font-size:17px}
-  .groups.sakura .gp .lab{font-size:9.5px;letter-spacing:.06em}
-  .groups.sakura .gp .lab b{font-size:15px}
-  .groups.sakura .gp .k{font-size:9px}
+  .groups.girl{gap:9px;padding:9px;border-radius:18px}
+  .groups.girl .gp{border-radius:17px}
+  .groups.girl .gp .deco{font-size:15px}
+  .groups.girl .gp .lab{font-size:8px;letter-spacing:.08em}
+  .groups.girl .gp .lab b{font-size:17px}
+  .groups.girl .gp .k{font-size:8.5px;padding:1px 7px}
 }
 @media (prefers-reduced-motion:reduce){
-  .groups.sakura .gp.today{animation:none}
-  .groups.sakura .gp.flip{animation:none}
+  .groups.girl .gp.today{animation:none}
+  .groups.girl .gp.flip{animation:none}
+  .groups.girl .gp.flip::after{display:none}
 }
-
 /* ============ 提示文字 ============ */
 .hint{
   font-size:13px;color:var(--ink3);margin:16px 0 0;line-height:1.7;
@@ -577,38 +594,38 @@ html[data-theme="light"] .slogan span{color:var(--amber)}
 }
 </style>
 </head>
-<body>
-<canvas id="balloon" aria-hidden="true"></canvas>
-<canvas id="fx"></canvas>
-<div id="wrap">
-  <header class="top">
-    <div class="brand">
-      <span class="mk" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v14.5"/>
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H19"/>
-          <path d="m9 9 2 2 4-4"/>
+<body data-page-node-id="31oJg8KDc47BiXPmoqKOIH">
+<canvas id="balloon" aria-hidden="true" data-page-node-id="8D8CSipbuVsxCiBVTROVuJ"></canvas>
+<canvas id="fx" data-page-node-id="e8vLLUsKoe7ZXRQoFykwZN"></canvas>
+<div id="wrap" data-page-node-id="8d5GGxpaudoeZ42MPMRQjr">
+  <header class="top" data-page-node-id="A5w32rCcNyMWhNavBOvMMH">
+    <div class="brand" data-page-node-id="YWfrBAKZxFvSCGX1vlPjmH">
+      <span class="mk" aria-hidden="true" data-page-node-id="wszkkHQbCiU8GlaYNDXeFp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="eBRcmZqwgrESXE55B87dkW">
+          <path d="M4 19.5V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v14.5" data-page-node-id="16r5hqVmFr8TuKAlucE9Zs"/>
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H19" data-page-node-id="RSjrtSEsJVueWb3hpitMQ4"/>
+          <path d="m9 9 2 2 4-4" data-page-node-id="yHfoJOSu2nswdqDe4UE8rd"/>
         </svg>
       </span>
-      <span id="brand">英语背诵打卡</span>
+      <span id="brand" data-page-node-id="7lhTXs0ZabgL2nZvFzr1Q1">英语背诵打卡</span>
     </div>
-    <div class="acts">
-      <button class="iconbtn" id="themeBtn" title="切换深色 / 浅色" aria-label="切换主题">◐</button>
-      <button class="link" id="back" hidden>返回</button>
+    <div class="acts" data-page-node-id="tZ711oFnznMHflUk4nKc4c">
+      <button class="iconbtn" id="themeBtn" title="切换深色 / 浅色" aria-label="切换主题" data-page-node-id="utJ1Jc0CmJ7YQCwHT9vZh0">◐</button>
+      <button class="link" id="back" hidden data-page-node-id="BYtXKGbTlHfoLmIPOIe9BF">返回</button>
     </div>
   </header>
 
-  <div class="steps" id="steps"></div>
-  <div class="head">
-    <h1 id="qt"></h1>
-    <p class="qs" id="qs"></p>
+  <div class="steps" id="steps" data-page-node-id="5790FhpsS5CWC1WysSQQGC"></div>
+  <div class="head" data-page-node-id="Bo5wHolMszq6gB2X3Yd2If">
+    <h1 id="qt" data-page-node-id="iiNHNY6hTxel3VhxSnJzRM"></h1>
+    <p class="qs" id="qs" data-page-node-id="nLqfTsdAoQsxv2LxHt2uZE"></p>
   </div>
-  <main id="view"></main>
-  <footer><button class="link" id="adminBtn">教师入口</button></footer>
+  <main id="view" data-page-node-id="h832Suxc98qYSNo3eGEWQ9"></main>
+  <footer data-page-node-id="sEADD2WE2EsAWbIAwqBee1"><button class="link" id="adminBtn" data-page-node-id="mcqMxMLvhJX7JqxQAoVggm">教师入口</button></footer>
 </div>
 
-<div id="flash" aria-live="polite"></div>
-<div id="toast" aria-live="polite"></div>
+<div id="flash" aria-live="polite" data-page-node-id="C6TJ5En4NVrqRmqVrx1MJU"></div>
+<div id="toast" aria-live="polite" data-page-node-id="jCuc5q2sQKKGt6jVomOaAc"></div>
 
 <script>
 /* ==========================================================
@@ -1198,15 +1215,16 @@ async function viewGroup(){
     + (todayN ? ' <b>' + todayN + '</b> 组' : '') + '</span>'
     + '</div>'
     + '<div class="bar"><i id="stBar" style="width:' + (mineSet.size / c.total * 100) + '%"></i></div>'
-    + '<div class="groups' + (S.content === 'words' ? ' sakura' : '') + '">'
+    + '<div class="groups' + (S.content === 'words' ? ' girl' : '') + '">'
     + Array.from({length: c.total}, (_, i) => i + 1).map(n => {
         const done = mineSet.has(n);
         const today = S.mine.some(r => r.content === S.content && r.grp === n && r.d === ds());
-        /* 库洛牌皮肤：每张牌一个色系（黄金角分布，相邻牌颜色拉得开） */
-        const hue = Math.round((n * 137.5) % 360);
-        const sig = (S.content === 'words') ? '<span class="sig">' + (done ? '★' : '✦') + '</span>' : '';
+        /* 日漫少女风：✧ 还没背 / 🌸 背过了 / 🎀 今天刚打的；--h 让每张牌的粉略有深浅 */
+        const hue = 330 + ((n * 3) % 24);
+        const deco = (S.content === 'words')
+          ? '<span class="deco">' + (today ? '🎀' : (done ? '🌸' : '✧')) + '</span>' : '';
         return '<button class="gp ' + (done ? 'done' : '') + ' ' + (today ? 'today' : '')
-          + '" data-g="' + n + '" style="--h:' + hue + '">' + sig
+          + '" data-g="' + n + '" style="--h:' + hue + '">' + deco
           + '<span class="lab">' + c.unit + ' <b>' + n + '</b></span>'
           + '<span class="k">' + (done ? '已背' : '未背') + '</span></button>';
       }).join('') + '</div>'
@@ -1252,10 +1270,10 @@ function paintCard(b, done, today){
   b.classList.toggle('today', !!today);
   const k = b.querySelector('.k');
   if (k) k.textContent = done ? '已背' : '未背';
-  /* 库洛牌皮肤：中央符号 ✦（牌背）↔ ★（牌面），并翻一下牌 */
-  const sig = b.querySelector('.sig');
-  if (sig) sig.textContent = done ? '★' : '✦';
-  if (b.closest && b.closest('.groups.sakura')) {
+  /* 日漫少女风：✧ 没背 / 🌸 背过 / 🎀 今天，并弹一下 + 光泽扫过 */
+  const deco = b.querySelector('.deco');
+  if (deco) deco.textContent = today ? '🎀' : (done ? '🌸' : '✧');
+  if (b.closest && b.closest('.groups.girl')) {
     b.classList.remove('flip');
     void b.offsetWidth;                /* 强制重排，让动画能连续触发 */
     b.classList.add('flip');
