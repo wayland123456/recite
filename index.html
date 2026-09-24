@@ -297,100 +297,126 @@ h1::after{
 }
 .gp:disabled{opacity:.55;cursor:progress}
 
-/* ============ 3500词 · 日漫少女风卡片 ============
-   气质：奶油粉底 + 白贴纸边 + 樱花装饰，圆润、软、亮 —— 不是库洛牌那种紫金硬派。
-   没背  = 素净待解锁（白卡 + 粉边 + ✧）
-   背过  = 樱花绽放（粉紫渐变 + 厚白边贴纸感 + 🌸）
-   今天  = 蝴蝶结 🎀 + 粉光呼吸
-   点一下 = 弹一下 + 一道光泽扫过卡面
-   --h 让每张牌的粉略有深浅（330~353 色相），整墙不呆板又不跑出粉色系。 */
-.groups.girl{
-  gap:11px;padding:12px;border-radius:22px;
-  background:linear-gradient(165deg,#fff5f9,#fdf3ff 55%,#f4f6ff);
-  box-shadow:inset 0 0 0 1px rgba(255,190,215,.55);
+/* ============ 3500词 · 星空魔法少女卡 ============
+   参照百变小樱的官方视觉：深蓝夜空 + 金色四角星 + 金色细框 + 蓝色魔法衣。
+   没背  = 夜空里没点亮的暗星（深蓝底 + 金细边 + ☆）
+   背过  = 星被点亮（蓝渐变 + 双金边 + 金色 ★ 发光）
+   今天  = 金色光晕呼吸
+   点一下 = 弹一下 + 一道金光扫过卡面
+   面板四角各有一颗会闪的金色四角星（.star）。 */
+.groups.magic{
+  position:relative;gap:11px;padding:14px;border-radius:18px;
+  background-color:#101c42;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.85) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255,255,255,.45) 1px, transparent 1.6px),
+    radial-gradient(ellipse at 50% 0%, #2a4185 0%, #16244e 55%, #0c1533 100%);
+  background-size:46px 46px, 73px 73px, 100% 100%;
+  background-position:0 0, 23px 29px, 0 0;
+  box-shadow:inset 0 0 0 1px rgba(245,196,81,.6), inset 0 0 0 6px rgba(245,196,81,.10),
+             0 14px 30px -18px rgba(8,16,45,.95);
 }
-.groups.girl .gp{
-  border:0;border-radius:20px;overflow:hidden;
-  background:linear-gradient(165deg,#ffffff,#fff7fb);
-  box-shadow:inset 0 0 0 2px #ffd6e4, 0 4px 10px -4px rgba(255,150,190,.35);
+.groups.magic .star{
+  position:absolute;width:11px;height:11px;z-index:1;pointer-events:none;
+  background:#f5c451;
+  clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);
+  filter:drop-shadow(0 0 6px rgba(255,214,110,.9));
+  animation:twinkle 3.2s ease-in-out infinite;
 }
-/* 卡面顶部那团柔光 */
-.groups.girl .gp::before{
-  content:'';position:absolute;left:50%;top:30%;width:66%;aspect-ratio:1;
-  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle, rgba(255,214,232,.75), rgba(255,214,232,0) 70%);
+@keyframes twinkle{
+  0%,100%{opacity:.45;transform:scale(.85) rotate(0deg)}
+  50%    {opacity:1;transform:scale(1.12) rotate(22deg)}
 }
-.groups.girl .gp::after{display:none}
-.groups.girl .gp .deco{
-  position:absolute;left:50%;top:23%;transform:translate(-50%,-50%);
-  font-size:18px;line-height:1;font-style:normal;pointer-events:none;
+.groups.magic .gp{
+  border:0;border-radius:11px;overflow:hidden;
+  background:linear-gradient(165deg,#1d2f66,#131f47 60%,#1a2a58);
+  box-shadow:inset 0 0 0 1.5px rgba(245,196,81,.7), 0 4px 12px -6px rgba(6,12,35,.9);
+  color:#ffe9b0;
 }
-.groups.girl .gp .lab{
+/* 卡面内圈那道细金线 */
+.groups.magic .gp::before{
+  content:'';position:absolute;inset:3.5px;border-radius:8px;
+  border:1px solid rgba(245,196,81,.22);pointer-events:none;
+}
+.groups.magic .gp::after{display:none}
+.groups.magic .gp .deco{
+  position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);
+  font-size:20px;line-height:1;font-style:normal;pointer-events:none;
+  color:rgba(245,196,81,.42);
+}
+.groups.magic .gp .lab{
   position:relative;z-index:2;margin-top:auto;
-  text-transform:uppercase;letter-spacing:.14em;
-  font-size:9.5px;font-weight:800;color:#ffc6d9;
+  font-family:Georgia,'Times New Roman',serif;
+  text-transform:uppercase;letter-spacing:.14em;font-size:9.5px;font-weight:700;
+  color:rgba(245,196,81,.75);
 }
-.groups.girl .gp .lab b{
-  display:block;font-size:22px;font-weight:800;letter-spacing:.02em;
-  color:#ff9ab8;line-height:1.15;margin-top:1px;
+.groups.magic .gp .lab b{
+  display:block;font-size:22px;font-weight:800;letter-spacing:.02em;line-height:1.15;
+  color:rgba(255,236,180,.92);margin-top:1px;
 }
-.groups.girl .gp .k{
+.groups.magic .gp .k{
   position:relative;z-index:2;margin-top:5px;padding:1.5px 9px;border-radius:999px;
-  font-size:9.5px;font-weight:700;color:#bda6b2;background:#fff0f5;
-  box-shadow:inset 0 0 0 1px #ffe2ee;
+  font-size:9.5px;font-weight:700;color:rgba(214,200,160,.75);
+  background:rgba(255,255,255,.07);
+  box-shadow:inset 0 0 0 1px rgba(245,196,81,.28);
 }
-/* 已背 = 樱花绽放 */
-.groups.girl .gp.done{
-  background:linear-gradient(165deg, hsl(var(--h) 100% 95%), hsl(var(--h) 78% 88%) 45%, hsl(calc(var(--h) + 18) 70% 93%));
-  box-shadow:inset 0 0 0 3px #fff, 0 0 0 1.5px hsl(var(--h) 72% 78%),
-             0 8px 18px -8px rgba(240,110,160,.5);
+/* 已背 = 星被点亮（每张牌的蓝深浅略有差别：--h 210~229） */
+.groups.magic .gp.done{
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,238,180,.32), transparent 62%),
+    linear-gradient(165deg, hsl(var(--h), 74%, 44%), hsl(var(--h), 80%, 33%) 55%, hsl(calc(var(--h) + 12), 72%, 42%));
+  box-shadow:inset 0 0 0 2px #f7cc5c, inset 0 0 18px -6px rgba(255,226,150,.8),
+             0 0 0 1px rgba(245,196,81,.45), 0 8px 20px -8px rgba(40,110,220,.85);
 }
-.groups.girl .gp.done::before{
-  background:radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0) 70%);
+.groups.magic .gp.done::before{border-color:rgba(255,240,190,.35)}
+.groups.magic .gp.done .deco{
+  font-size:21px;color:#ffe07a;
+  text-shadow:0 0 8px rgba(255,214,110,.95), 0 0 18px rgba(255,190,60,.55);
 }
-.groups.girl .gp.done .lab{color:hsl(var(--h) 62% 58%)}
-.groups.girl .gp.done .lab b{color:hsl(var(--h) 68% 44%);text-shadow:0 1px 0 rgba(255,255,255,.8)}
-.groups.girl .gp.done .k{
-  color:#fff;background:hsl(var(--h) 72% 68%);
-  box-shadow:0 2px 6px -2px hsl(var(--h) 60% 55% / .8);
+.groups.magic .gp.done .lab{color:rgba(255,240,200,.9)}
+.groups.magic .gp.done .lab b{color:#fff;text-shadow:0 1px 3px rgba(10,25,60,.85)}
+.groups.magic .gp.done .k{
+  color:#1a2a5e;background:#f7cc5c;
+  box-shadow:0 2px 7px -2px rgba(245,196,81,.9);
 }
-/* 今天刚打的：粉光呼吸 */
-.groups.girl .gp.today{animation:girlGlow 2.6s ease-in-out infinite}
-@keyframes girlGlow{
-  0%,100%{box-shadow:inset 0 0 0 3px #fff, 0 0 0 2px #ff9dc0, 0 6px 16px -8px rgba(240,110,160,.5)}
-  50%    {box-shadow:inset 0 0 0 3px #fff, 0 0 0 6px rgba(255,157,192,.32), 0 8px 20px -6px rgba(240,110,160,.7)}
+/* 今天刚打的：金色光晕呼吸 */
+.groups.magic .gp.today{animation:magicPulse 2.5s ease-in-out infinite}
+@keyframes magicPulse{
+  0%,100%{box-shadow:inset 0 0 0 2px #f7cc5c, 0 0 0 2px rgba(245,196,81,.45), 0 8px 20px -8px rgba(40,110,220,.7)}
+  50%    {box-shadow:inset 0 0 0 2px #ffeaa8, 0 0 0 7px rgba(245,196,81,.20), 0 10px 24px -6px rgba(60,140,255,.9)}
 }
-.groups.girl .gp.today .deco{font-size:20px}
 /* 打卡瞬间：弹一下 */
-.groups.girl .gp.flip{animation:girlPop .58s cubic-bezier(.34,1.56,.64,1)}
-@keyframes girlPop{
+.groups.magic .gp.flip{animation:magicPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes magicPop{
   0%{transform:scale(1)}
-  35%{transform:scale(1.16) rotate(-3deg)}
-  70%{transform:scale(.96) rotate(2deg)}
+  35%{transform:scale(1.15) rotate(-2deg)}
+  70%{transform:scale(.97) rotate(2deg)}
   100%{transform:scale(1)}
 }
-/* 打卡瞬间：一道光泽扫过卡面 */
-.groups.girl .gp.flip::after{
+/* 打卡瞬间：一道金光扫过 */
+.groups.magic .gp.flip::after{
   content:'';display:block;position:absolute;inset:-45%;z-index:4;pointer-events:none;
-  background:linear-gradient(70deg, transparent 42%, rgba(255,255,255,.9) 50%, transparent 58%);
-  animation:girlShine .72s ease-out;
+  background:linear-gradient(70deg, transparent 40%, rgba(255,242,200,.9) 50%, transparent 60%);
+  animation:magicShine .72s ease-out;
 }
-@keyframes girlShine{
+@keyframes magicShine{
   0%{transform:translateX(-130%)}
   100%{transform:translateX(130%)}
 }
 @media (max-width:520px){
-  .groups.girl{gap:9px;padding:9px;border-radius:18px}
-  .groups.girl .gp{border-radius:17px}
-  .groups.girl .gp .deco{font-size:15px}
-  .groups.girl .gp .lab{font-size:8px;letter-spacing:.08em}
-  .groups.girl .gp .lab b{font-size:17px}
-  .groups.girl .gp .k{font-size:8.5px;padding:1px 7px}
+  .groups.magic{gap:9px;padding:10px;border-radius:15px}
+  .groups.magic .gp{border-radius:9px}
+  .groups.magic .gp .deco{font-size:16px}
+  .groups.magic .gp .lab{font-size:8px;letter-spacing:.08em}
+  .groups.magic .gp .lab b{font-size:17px}
+  .groups.magic .gp .k{font-size:8.5px;padding:1px 7px}
+  .groups.magic .star{width:8px;height:8px}
 }
 @media (prefers-reduced-motion:reduce){
-  .groups.girl .gp.today{animation:none}
-  .groups.girl .gp.flip{animation:none}
-  .groups.girl .gp.flip::after{display:none}
+  .groups.magic .star,
+  .groups.magic .gp.today{animation:none}
+  .groups.magic .gp.flip{animation:none}
+  .groups.magic .gp.flip::after{display:none}
 }
 /* ============ 提示文字 ============ */
 .hint{
@@ -1215,14 +1241,20 @@ async function viewGroup(){
     + (todayN ? ' <b>' + todayN + '</b> 组' : '') + '</span>'
     + '</div>'
     + '<div class="bar"><i id="stBar" style="width:' + (mineSet.size / c.total * 100) + '%"></i></div>'
-    + '<div class="groups' + (S.content === 'words' ? ' girl' : '') + '">'
+    + '<div class="groups' + (S.content === 'words' ? ' magic' : '') + '">'
+    + ((S.content === 'words')
+        ? '<i class="star" style="top:5px;left:6px"></i>'
+          + '<i class="star" style="top:5px;right:6px;animation-delay:.8s"></i>'
+          + '<i class="star" style="bottom:5px;left:6px;animation-delay:1.6s"></i>'
+          + '<i class="star" style="bottom:5px;right:6px;animation-delay:2.4s"></i>'
+        : '')
     + Array.from({length: c.total}, (_, i) => i + 1).map(n => {
         const done = mineSet.has(n);
         const today = S.mine.some(r => r.content === S.content && r.grp === n && r.d === ds());
-        /* 日漫少女风：✧ 还没背 / 🌸 背过了 / 🎀 今天刚打的；--h 让每张牌的粉略有深浅 */
-        const hue = 330 + ((n * 3) % 24);
+        /* 星空魔法卡：☆ 没点亮 / ★ 已点亮 / ✦ 今天刚点亮；--h 让每张牌的蓝深浅略有差别 */
+        const hue = 210 + ((n * 3) % 20);
         const deco = (S.content === 'words')
-          ? '<span class="deco">' + (today ? '🎀' : (done ? '🌸' : '✧')) + '</span>' : '';
+          ? '<span class="deco">' + (today ? '✦' : (done ? '★' : '☆')) + '</span>' : '';
         return '<button class="gp ' + (done ? 'done' : '') + ' ' + (today ? 'today' : '')
           + '" data-g="' + n + '" style="--h:' + hue + '">' + deco
           + '<span class="lab">' + c.unit + ' <b>' + n + '</b></span>'
@@ -1270,10 +1302,10 @@ function paintCard(b, done, today){
   b.classList.toggle('today', !!today);
   const k = b.querySelector('.k');
   if (k) k.textContent = done ? '已背' : '未背';
-  /* 日漫少女风：✧ 没背 / 🌸 背过 / 🎀 今天，并弹一下 + 光泽扫过 */
+  /* 星空魔法卡：☆ 没点亮 / ★ 已点亮 / ✦ 今天，并弹一下 + 金光扫过 */
   const deco = b.querySelector('.deco');
-  if (deco) deco.textContent = today ? '🎀' : (done ? '🌸' : '✧');
-  if (b.closest && b.closest('.groups.girl')) {
+  if (deco) deco.textContent = today ? '✦' : (done ? '★' : '☆');
+  if (b.closest && b.closest('.groups.magic')) {
     b.classList.remove('flip');
     void b.offsetWidth;                /* 强制重排，让动画能连续触发 */
     b.classList.add('flip');
