@@ -1,7 +1,7 @@
 /* 背诵打卡 · Service Worker
    策略：优先走网络（改版后学生能立刻拿到新版），断网时才用缓存兜底。
    这样既支持离线打开 / 加到手机桌面，又不会出现「页面改了但学生看到旧的」。 */
-const CACHE = 'recite-v5';
+const CACHE = 'recite-v6';
 
 self.addEventListener('install', e => self.skipWaiting());
 
