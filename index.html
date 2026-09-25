@@ -421,6 +421,129 @@ h1::after{
   .groups.magic .gp.flip{animation:none}
   .groups.magic .gp.flip::after{display:none}
 }
+/* ============ 写作100句 · 玻璃拟态卡 ============
+   面板 = 粉紫蓝柔光背景 + 两团模糊光斑，卡片是浮在上面的半透明玻璃。
+   没背  = 白玻璃（半透明白 + 模糊背景 + 白色高光边 + 右上角反光点）
+   背过  = 彩色玻璃（每张一个色相：青→蓝→紫→粉，--h 200~340）
+   今天  = 白色描边呼吸
+   点一下 = 弹一下 + 一道白色光泽扫过
+   卡片下方小字显示这一组是哪几句（句 11–15）。 */
+.groups.glass{
+  position:relative;overflow:hidden;gap:11px;padding:14px;border-radius:20px;
+  background:
+    radial-gradient(110% 110% at 10% 4%,  rgba(255,214,236,.95) 0%, transparent 56%),
+    radial-gradient(110% 110% at 92% 0%,  rgba(207,224,255,.95) 0%, transparent 52%),
+    radial-gradient(110% 110% at 50% 108%,rgba(216,243,230,.95) 0%, transparent 56%),
+    linear-gradient(160deg,#eef1ff 0%,#f7eefb 55%,#eaf6f3 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8), 0 12px 28px -18px rgba(60,70,110,.65);
+}
+/* 面板上的两团模糊光斑，玻璃卡透出来的颜色就是它们 */
+.groups.glass::before,.groups.glass::after{
+  content:'';position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+  filter:blur(26px);
+}
+.groups.glass::before{width:118px;height:118px;left:-16px;top:-26px;background:rgba(255,140,200,.5)}
+.groups.glass::after{width:138px;height:138px;right:-24px;bottom:-32px;background:rgba(120,180,255,.45)}
+.groups.glass .gp{
+  position:relative;z-index:1;overflow:hidden;
+  border:1px solid rgba(255,255,255,.8);border-radius:16px;
+  background:rgba(255,255,255,.34);
+  -webkit-backdrop-filter:blur(9px) saturate(1.45);
+  backdrop-filter:blur(9px) saturate(1.45);
+  color:#3a4a6b;
+  box-shadow:0 6px 18px -12px rgba(30,50,90,.7), inset 0 1px 0 rgba(255,255,255,.9);
+}
+/* 卡面左上角那道斜向反光 */
+.groups.glass .gp::before{
+  content:'';position:absolute;left:-35%;top:-65%;width:75%;height:190%;
+  transform:rotate(18deg);pointer-events:none;z-index:1;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));
+}
+.groups.glass .gp::after{display:none}
+/* 右上角反光点 */
+.groups.glass .gp .deco{
+  position:absolute;right:9px;top:8px;width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 0 7px rgba(255,255,255,.95), 0 0 2px rgba(120,160,255,.6);
+}
+.groups.glass .gp:hover{border-color:#fff;transform:translateY(-3px) scale(1.02)}
+.groups.glass .gp .lab{
+  position:relative;z-index:2;margin-top:auto;
+  font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(58,74,107,.7);
+}
+.groups.glass .gp .lab b{
+  display:block;font-size:23px;font-weight:800;letter-spacing:.02em;line-height:1.15;
+  color:#2f3f60;margin-top:1px;
+}
+/* 这一组的句子范围：句 11–15 */
+.groups.glass .gp .rng{
+  position:relative;z-index:2;margin-top:1px;
+  font-size:8.5px;font-weight:600;letter-spacing:.03em;
+  color:rgba(58,74,107,.52);font-variant-numeric:tabular-nums;
+}
+.groups.glass .gp .k{
+  position:relative;z-index:2;margin-top:4px;padding:1.5px 9px;border-radius:999px;
+  font-size:9.5px;font-weight:700;color:rgba(48,64,96,.82);
+  background:rgba(255,255,255,.55);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.85), 0 1px 4px -2px rgba(40,60,100,.45);
+}
+/* 已背 = 彩色玻璃，每张一个色相（--h 200~340） */
+.groups.glass .gp.done{
+  background:linear-gradient(160deg,
+    hsla(var(--h),78%,74%,.62), hsla(calc(var(--h) + 26),72%,66%,.55));
+  border-color:rgba(255,255,255,.95);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.6), inset 0 1px 0 rgba(255,255,255,.9),
+             0 8px 20px -10px hsla(var(--h),70%,55%,.85);
+}
+.groups.glass .gp.done .lab{color:rgba(255,255,255,.92)}
+.groups.glass .gp.done .lab b{color:#fff;text-shadow:0 1px 3px rgba(20,35,70,.35)}
+.groups.glass .gp.done .rng{color:rgba(255,255,255,.8)}
+.groups.glass .gp.done .k{
+  color:hsl(var(--h),72%,30%);background:rgba(255,255,255,.93);
+  box-shadow:0 2px 7px -3px rgba(40,60,110,.5);
+}
+.groups.glass .gp.done .deco{background:#fff;box-shadow:0 0 9px rgba(255,255,255,.95)}
+/* 今天刚打的：白色描边呼吸 */
+.groups.glass .gp.today{animation:glassPulse 2.6s ease-in-out infinite}
+@keyframes glassPulse{
+  0%,100%{box-shadow:inset 0 0 0 2px rgba(255,255,255,.95), 0 0 0 2px rgba(120,170,255,.35),
+          0 8px 20px -10px hsla(var(--h),70%,55%,.65)}
+  50%    {box-shadow:inset 0 0 0 2px #fff, 0 0 0 7px rgba(120,170,255,.22),
+          0 10px 24px -8px hsla(var(--h),75%,60%,.9)}
+}
+/* 打卡瞬间：弹一下 */
+.groups.glass .gp.flip{animation:glassPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes glassPop{
+  0%{transform:scale(1)}
+  35%{transform:scale(1.13) rotate(-1.5deg)}
+  70%{transform:scale(.98) rotate(1deg)}
+  100%{transform:scale(1)}
+}
+/* 打卡瞬间：一道白光扫过 */
+.groups.glass .gp.flip::after{
+  content:'';display:block;position:absolute;inset:-45%;z-index:4;pointer-events:none;
+  background:linear-gradient(70deg,transparent 40%,rgba(255,255,255,.95) 50%,transparent 60%);
+  animation:glassShine .75s ease-out;
+}
+@keyframes glassShine{
+  0%{transform:translateX(-130%)}
+  100%{transform:translateX(130%)}
+}
+@media (max-width:520px){
+  .groups.glass{gap:9px;padding:10px;border-radius:16px}
+  .groups.glass .gp{border-radius:13px}
+  .groups.glass .gp .lab{font-size:8px;letter-spacing:.1em}
+  .groups.glass .gp .lab b{font-size:18px}
+  .groups.glass .gp .rng{font-size:7.5px}
+  .groups.glass .gp .k{font-size:8.5px;padding:1px 7px}
+  .groups.glass .gp .deco{width:6px;height:6px;right:7px;top:7px}
+}
+@media (prefers-reduced-motion:reduce){
+  .groups.glass .gp.today{animation:none}
+  .groups.glass .gp.flip{animation:none}
+  .groups.glass .gp.flip::after{display:none}
+}
 /* ============ 提示文字 ============ */
 .hint{
   font-size:13px;color:var(--ink3);margin:16px 0 0;line-height:1.7;
@@ -650,7 +773,7 @@ html[data-theme="light"] .slogan span{color:var(--amber)}
     <p class="qs" id="qs" data-page-node-id="nLqfTsdAoQsxv2LxHt2uZE"></p>
   </div>
   <main id="view" data-page-node-id="h832Suxc98qYSNo3eGEWQ9"></main>
-  <footer data-page-node-id="sEADD2WE2EsAWbIAwqBee1"><button class="link" id="adminBtn" data-page-node-id="mcqMxMLvhJX7JqxQAoVggm">教师入口</button><span id="ver" style="margin-left:10px;font-size:11px;opacity:.45">v5</span></footer>
+  <footer data-page-node-id="sEADD2WE2EsAWbIAwqBee1"><button class="link" id="adminBtn" data-page-node-id="mcqMxMLvhJX7JqxQAoVggm">教师入口</button><span id="ver" style="margin-left:10px;font-size:11px;opacity:.45">v6</span></footer>
 </div>
 
 <div id="flash" aria-live="polite" data-page-node-id="C6TJ5En4NVrqRmqVrx1MJU"></div>
@@ -697,7 +820,7 @@ const CONFIG = {
   /* --- 2. 背诵内容（total = 总组数，改这里就行） ------------------ */
   contents: {
     words: { label: '3500词乱序版', total: 40, hint: '每组约 87 词', unit: 'List'  },
-    sent:  { label: '写作100句',    total: 20, hint: '每组 5 句',    unit: 'Group' }
+    sent:  { label: '写作100句',    total: 20, hint: '每组 5 句',    unit: 'Group', per: 5 }
   },
 
   /* --- 3. 云端数据：复用英语学习网站的 Supabase 项目 ---------------
@@ -1244,7 +1367,7 @@ async function viewGroup(){
     + (todayN ? ' <b>' + todayN + '</b> 组' : '') + '</span>'
     + '</div>'
     + '<div class="bar"><i id="stBar" style="width:' + (mineSet.size / c.total * 100) + '%"></i></div>'
-    + '<div class="groups' + (S.content === 'words' ? ' magic' : '') + '">'
+    + '<div class="groups' + (S.content === 'words' ? ' magic' : ' glass') + '">'
     + ((S.content === 'words')
         ? '<i class="star" style="top:5px;left:6px"></i>'
           + '<i class="star" style="top:5px;right:6px;animation-delay:.8s"></i>'
@@ -1254,13 +1377,17 @@ async function viewGroup(){
     + Array.from({length: c.total}, (_, i) => i + 1).map(n => {
         const done = mineSet.has(n);
         const today = S.mine.some(r => r.content === S.content && r.grp === n && r.d === ds());
-        /* 星空魔法卡：☆ 没点亮 / ★ 已点亮 / ✦ 今天刚点亮；--h 让每张牌的蓝深浅略有差别 */
-        const hue = 210 + ((n * 3) % 20);
+        /* --h 决定玻璃颜色：3500词是蓝金星空（210~229），100句是彩色玻璃（青→蓝→紫→粉 200~340） */
+        const hue = (S.content === 'words') ? (210 + ((n * 3) % 20)) : (200 + ((n * 23) % 140));
+        /* 100句（玻璃拟态）用右上角反光点代替星标，并显示这一组是哪几句 */
         const deco = (S.content === 'words')
-          ? '<span class="deco">' + (today ? '✦' : (done ? '★' : '☆')) + '</span>' : '';
+          ? '<span class="deco">' + (today ? '✦' : (done ? '★' : '☆')) + '</span>'
+          : '<span class="deco"></span>';
+        const rng = (S.content === 'words' || !c.per) ? ''
+          : '<span class="rng">句 ' + ((n - 1) * c.per + 1) + '–' + (n * c.per) + '</span>';
         return '<button class="gp ' + (done ? 'done' : '') + ' ' + (today ? 'today' : '')
           + '" data-g="' + n + '" style="--h:' + hue + '">' + deco
-          + '<span class="lab">' + c.unit + ' <b>' + n + '</b></span>'
+          + '<span class="lab">' + c.unit + ' <b>' + n + '</b></span>' + rng
           + '<span class="k">' + (done ? '已背' : '未背') + '</span></button>';
       }).join('') + '</div>'
     + '<p class="hint">点一下就打卡，再点一次取消。绿色是你已经背过的组，黄圈是今天刚打的。打卡后不会跳回顶部，可以连着点。</p>';
@@ -1305,10 +1432,13 @@ function paintCard(b, done, today){
   b.classList.toggle('today', !!today);
   const k = b.querySelector('.k');
   if (k) k.textContent = done ? '已背' : '未背';
-  /* 星空魔法卡：☆ 没点亮 / ★ 已点亮 / ✦ 今天，并弹一下 + 金光扫过 */
+  /* 星空卡换星标（☆/★/✦）；玻璃卡的 deco 是反光点，纯 CSS，不用换字符 */
   const deco = b.querySelector('.deco');
-  if (deco) deco.textContent = today ? '✦' : (done ? '★' : '☆');
-  if (b.closest && b.closest('.groups.magic')) {
+  if (deco && b.closest && b.closest('.groups.magic')) {
+    deco.textContent = today ? '✦' : (done ? '★' : '☆');
+  }
+  /* 两套皮肤都要弹一下 + 光泽扫过 */
+  if (b.closest && (b.closest('.groups.magic') || b.closest('.groups.glass'))) {
     b.classList.remove('flip');
     void b.offsetWidth;                /* 强制重排，让动画能连续触发 */
     b.classList.add('flip');
@@ -1488,7 +1618,7 @@ applyTheme(document.documentElement.dataset.theme || 'dark');
 
 /* 注册整站 Service Worker：打卡页可"添加到手机桌面"并离线打开 */
 if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
-  navigator.serviceWorker.register('./sw.js?v=5').catch(function(){});
+  navigator.serviceWorker.register('./sw.js?v=6').catch(function(){});
 }
 
 /* 先探测云端表是否就绪，再渲染 */
